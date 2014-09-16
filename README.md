@@ -14,7 +14,7 @@ Quick start
 -----------
 If you don't have node.js installed, simply install it:
 
-> sudo apt-get install node
+> sudo apt-get install nodejs
 
 or (http://nodejs.org/download/)
 
