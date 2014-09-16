@@ -1,0 +1,30 @@
+{
+  "name": "synergic-noise",
+  "version": "0.0.1",
+  "description": "A simple node.js collaborative drum-machine",
+  "main": "app.js",
+  "dependencies": {
+    "socket.io": "~1.1.0",
+    "express": "~4.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tapione/synergic-noise"
+  },
+  "keywords": [
+    "node.js",
+    "socket.io",
+    "drum",
+    "drum-machine",
+    "drummachine"
+  ],
+  "author": "Riccardo Serafini - http://tapion.it",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/tapione/synergic-noise/issues"
+  }
+}

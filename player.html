@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Synergic Noise - Player</title>
+    <style>
+        h3 {
+            text-align: center;
+            font-size: 30px;
+            font-family: sans-serif;
+        }
+        #currentSound {
+            margin-top: 20px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="soundjs-0.5.2.min.js"/></script>
+    <script src="jquery-1.11.0.min.js"></script>
+    <script>
+
+        var socket = io(window.location.host);
+        socket.emit('player',{});
+        socket.on('sound', function (data) {
+            console.log(data);
+            play(data.sound);
+        });
+
+        var audioPath = "sounds/";
+        var manifest = [
+            {id:"beat", src:"beat.wav"},
+            {id:"clap", src:"clap.wav"},
+            {id:"clhat", src:"clhat.wav"},
+            {id:"click", src:"click.wav"},
+            {id:"drum", src:"drum.wav"},
+            {id:"ludwig", src:"ludwig.wav"},
+            {id:"piccolo", src:"piccolo.wav"},
+            {id:"tom", src:"tom.wav"},
+            {id:"tom2", src:"tom2.wav"}
+        ];
+                         
+        createjs.Sound.alternateExtensions = ["mp3"];
+        createjs.Sound.registerManifest(manifest, audioPath);
+
+        function play(sound) {
+            $('#currentSound').text(sound);
+            createjs.Sound.play(sound);
+        }
+
+    </script>
+    <h3>Ready for the synergic noise session! Turn the volume up :)</h3>
+    <h3 id="currentSound"></h3>
+</body>
+</html>

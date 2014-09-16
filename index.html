@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Synergic Noise</title>
+    <style>
+        table {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        tr {
+            height: 33%;
+        }
+        td {
+            border: 1px solid black;
+            text-align: center;
+            font-size: 10vw;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td id="beat">1</td>
+            <td id="clap">2</td>
+            <td id="clhat">3</td>
+        </tr>
+        <tr>
+            <td id="click">4</td>
+            <td id="drum">5</td>
+            <td id="ludwig">6</td>
+        </tr>
+        <tr>
+            <td id="piccolo">7</td>
+            <td id="tom">8</td>
+            <td id="tom2">9</td>
+        </tr>
+    </table>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="jquery-1.11.0.min.js"></script>
+    <script>
+        var socket = io(window.location.host);
+
+        function play(sound) {
+            socket.emit('sound', {'sound': sound});        
+        }
+        $(document).ready(function() {
+            $('td').on('mousedown touchstart', function(e){
+                sound = e.target.id;
+                play(sound);
+                //e.preventDefault();
+                $(this).css('background-color', 'black');
+                return false;
+            });
+            $('td').on('mouseup touchend', function(e) {
+                $(this).css('background-color', 'white');
+            });
+        });
+    </script>
+</body>
+</html>
