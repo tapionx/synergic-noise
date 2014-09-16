@@ -12,9 +12,9 @@ It is based on:
 
 Quick start
 -----------
-If you don't have node.js installed, simply install it:
+If you don't have node.js and npm installed, simply install them:
 
-> sudo apt-get install nodejs
+> sudo apt-get install nodejs npm
 
 or (http://nodejs.org/download/)
 
