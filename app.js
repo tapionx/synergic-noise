@@ -26,8 +26,6 @@ noisers.on('connection', function(socket) {
     console.log('noiser logged in: '+socket.id);
     //when a noiser send a sound
     socket.on('sound', function(data) {
-        //io.to('players').emit('sound', data);
-        //noisers.emit('sound', data);
         io.of('/players').emit('sound', data);
         console.log(data.sound);
     });

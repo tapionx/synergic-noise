@@ -1,146 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Synergic Noise</title>
-    <style>
-        .table {
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
-        tr {
-            height: 33%;
-        }
-        td {
-            border: 1px solid black;
-            text-align: center;
-            font-size: 10vw;
-            font-family: sans-serif;
-        }
-        #drum td {
-            border-radius: 5px;
-            border: 1px solid grey;
-            box-shadow: inset 0px 0px 130px 15px rgba(248, 79, 0, 0.75);
-        }
-        #menu {
-            height: 3vw;
-            width: 100%;
-            position: fixed;
-            /* background-color: blue; */
-            top: 0;
-            left: 0;
-            z-index: 2;
-        }
-        #menu div {
-            display: inline-block;
-            font-size: 2.1vw;
-            margin: 0 10px;
-            padding: 3px;
-            font-family: sans-serif;
-            border: 1px solid grey;
-            border-radius: 10px;
-            background-color: white;
-        }
-        #piano td {
-            position: relative;
-        }
-        #piano span {
-            background-color: black;
-            height: 60%;
-            width: 60%;
-            z-index: 1;
-            position: absolute;
-            top: 0;
-            left: -30%;
-        }
-        .menu-active {
-            box-shadow: inset 0px 0px 20px 5px yellow;
-        }
-    </style>
-</head>
-<body>
-    <div id="menu">
-        <div id="menu-drum" class="menu-active">drum</div>
-        <div id="menu-piano">piano</div>
-    </div>
-    <div id="drum">
-        <table class="table">
-            <tr>
-                <td id="beat" class="beat">1</td>
-                <td id="clap" class="beat">2</td>
-                <td id="clhat" class="beat">3</td>
-            </tr>
-            <tr>
-                <td id="click" class="beat">4</td>
-                <td id="drum" class="beat">5</td>
-                <td id="ludwig" class="beat">6</td>
-            </tr>
-            <tr>
-                <td id="piccolo" class="beat">7</td>
-                <td id="tom" class="beat">8</td>
-                <td id="tom2" class="beat">9</td>
-            </tr>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <title>Synergic Noise</title>
+        <style>
+            html, body {
+                margin: 0;
+                padding: 0;
+            }
+            table {
+                height: 100%;
+                max-height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                text-align: center;
+                font-family: sans-serif;
+                font-size: 35px;
+            }
+            
+            td {
+                border: 1px solid grey;
+                border-radius: 5px;
+            }
+            
+            th {
+                height: 10%;
+                font-size: 25px;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tbody>
+                <tr>
+                    <th colspan="2">Select your instrument and make some noise!</th>
+                </tr>
+                <tr>
+                    <td><a href="player.html"><p>Player</p></a></td>
+                    <td><a href="drum.html">Drum</a></td>
+                </tr>
+                <tr>
+                    <td><a href="piano.html">Piano</a></td>
+                    <td></td>
+                </tr>
+            </tbody>
         </table>
-    </div>
-    <div id="piano" style="display:none;">
-        <table class="table">
-            <tr>
-                <td id="1-c1" class="beat"></td>
-                <td id="3-d1" class="beat"><span id="2-c1s" class="beat"></span></td>
-                <td id="5-e1" class="beat"><span id="4-d1s" class="beat"></span></td>
-                <td id="6-f1" class="beat"></td>
-                <td id="8-g1" class="beat"><span id="7-f1s" class="beat"></span></td>
-                <td id="10-a1" class="beat"><span id="9-g1s" class="beat"></span></td>
-                <td id="12-b1" class="beat"><span id="11-a1s" class="beat"></span></td>
-                <td id="13-c2" class="beat"></td>
-            </tr>
-        </table>
-    </div>
-    
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="jquery-1.11.0.min.js"></script>
-    <script>
-        var socket = io(window.location.host+'/noisers');
-
-        function play(sound) {
-            socket.emit('sound', {'sound': sound});        
-        }
-        $(document).ready(function() {
-            $('#menu-piano').on('mousedown touchstart', function(e) {
-                $('#menu-piano').addClass('menu-active');
-                $('#menu-drum').removeClass('menu-active');
-                $('#drum').hide();
-                $('#piano').show();
-                return false;
-            });
-            $('#menu-drum').on('mousedown touchstart', function(e) {
-                $('#menu-drum').addClass('menu-active');
-                $('#menu-piano').removeClass('menu-active');
-                $('#drum').show();
-                $('#piano').hide();
-                return false;
-            });
-            $('.beat').on('mousedown touchstart', function(e){
-                sound = e.target.id;
-                play(sound);
-                //e.preventDefault();
-                $(this).css('background-color', 'grey');
-                return false;
-            });
-            $('.beat').on('mouseup touchend', function(e) {
-                $(this).css('background-color', 'default');
-            });
-            $('#switch').on('mousedown touchstart', function(e) {
-                $('#drum').toggle();
-                $('#piano').toggle();
-                return false;
-            });
-
-        });
-    </script>
-</body>
+    </body>
 </html>

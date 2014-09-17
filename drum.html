@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Synergic Noise</title>
+    <style>
+        table {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        tr {
+            height: 33%;
+        }
+        td {
+            border: 1px solid black;
+            text-align: center;
+            font-size: 10vw;
+            font-family: sans-serif;
+        }
+        td {
+            border-radius: 5px;
+            border: 1px solid grey;
+            box-shadow: inset 0px 0px 130px 15px rgba(248, 79, 0, 0.75);
+        }
+        img {
+            height: 5vw;
+        }
+        .pressed {
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td id="beat" class="beat"><img src="img/drum.png"></td>
+            <td id="clap" class="beat"><img src="img/drum.png"></td>
+            <td id="clhat" class="beat"><img src="img/drum.png"></td>
+        </tr>
+        <tr>
+            <td id="click" class="beat"><img src="img/drum.png"></td>
+            <td id="drum" class="beat"><img src="img/drum.png"></td>
+            <td id="ludwig" class="beat"><img src="img/drum.png"></td>
+        </tr>
+        <tr>
+            <td id="piccolo" class="beat"><img src="img/drum.png"></td>
+            <td id="tom" class="beat"><img src="img/drum.png"></td>
+            <td id="tom2" class="beat"><img src="img/drum.png"></td>
+        </tr>
+    </table>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="jquery-1.11.0.min.js"></script>
+    <script src="instrument.js"></script>
+</body>
+</html>

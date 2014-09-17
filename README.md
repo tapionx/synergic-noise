@@ -50,6 +50,23 @@ So:
 
 - touch the buttons and let the magic happen :)
 
+Adding instruments
+------------------
+
+Simply copy "instrument-template.html" and customize it with your instrument.
+
+Divs with "beat" class, will trigger a sound when pushed or touched.
+
+The beat played is taken from the "id" of the element.
+
+> <div class="beat" id="drum">PUSH ME</div>
+
+( this div will reproduce "drum.wav" when pushed )
+
+Add your new beats in a new folder under /sounds, and update the "player.html" manifest accordingly.
+
+Add the link to your new instrument on the table in "index.html"
+
 TODO:
 -----
 (pull requests are welcome !)

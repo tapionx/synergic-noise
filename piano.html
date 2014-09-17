@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Synergic Noise</title>
+    <style>
+        table {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: -5px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        td {
+            position: relative;
+            border: 1px solid grey;
+            border-radius: 3px;
+        }
+        span {
+            background-color: black;
+            border-radius: 3px;
+            height: 60%;
+            width: 60%;
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            left: -30%;
+        }
+        .pressed {
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td id="1-c1" class="beat"></td>
+            <td id="3-d1" class="beat"><span id="2-c1s" class="beat"></span></td>
+            <td id="5-e1" class="beat"><span id="4-d1s" class="beat"></span></td>
+            <td id="6-f1" class="beat"></td>
+            <td id="8-g1" class="beat"><span id="7-f1s" class="beat"></span></td>
+            <td id="10-a1" class="beat"><span id="9-g1s" class="beat"></span></td>
+            <td id="12-b1" class="beat"><span id="11-a1s" class="beat"></span></td>
+            <td id="13-c2" class="beat"></td>
+        </tr>
+    </table>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="jquery-1.11.0.min.js"></script>
+    <script src="instrument.js"></script>
+</body>
+</html>
