@@ -21,7 +21,7 @@
     <script src="jquery-1.11.0.min.js"></script>
     <script>
 
-        var socket = io(window.location.host);
+        var socket = io(window.location.host+'/players');
         socket.emit('player',{});
         socket.on('sound', function (data) {
             console.log(data);

@@ -104,7 +104,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="jquery-1.11.0.min.js"></script>
     <script>
-        var socket = io(window.location.host);
+        var socket = io(window.location.host+'/noisers');
 
         function play(sound) {
             socket.emit('sound', {'sound': sound});        

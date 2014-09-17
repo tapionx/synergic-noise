@@ -11,26 +11,26 @@ server.listen(port, function () {
 // serve static files 
 app.use(express.static(__dirname + '/'));
 
-var player;
+// namespace for players
+var players = io.of('/players');
+// namespace for noisers
+var noisers = io.of('/noisers');
 
-io.on('connection', function (socket) {
-
-    var s = socket;
-
-    //socket.emit('news', { hello: 'world' });
-
-    socket.on('player', function (data) {
-        player = s;
-        console.log('player logged in: '+s.id);
-    });
-
-    socket.on('sound', function (data) {
-        if(player) {
-            player.emit('sound', data);
-            console.log(data.sound);
-        } else {
-            console.log('player not connected yet, visit /player.html');
-        }
+// when a player connects
+players.on('connection', function (socket) {
+    console.log('player logged in: '+socket.id);
+});
+    
+//when a noiser connects
+noisers.on('connection', function(socket) {
+    console.log('noiser logged in: '+socket.id);
+    //when a noiser send a sound
+    socket.on('sound', function(data) {
+        //io.to('players').emit('sound', data);
+        //noisers.emit('sound', data);
+        io.of('/players').emit('sound', data);
+        console.log(data.sound);
     });
 });
+
 
