@@ -43,10 +43,10 @@ It listen to default at the 8080 port, but you can change this behavior simply c
 
 So:
 - from the PC who will reproduce the samples, turn up the volume and visit
-> http://localhost:8080/player.html
+> http://servername:8080/player.html
 
 - from the devices that will be your "noisiers", visit:
-> http://localhost:8080/
+> http://servername:8080/
 
 - touch the buttons and let the magic happen :)
 
