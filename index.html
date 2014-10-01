@@ -7,6 +7,7 @@
             html, body {
                 margin: 0;
                 padding: 0;
+		background-color: rgb(218, 227, 255);
             }
             table {
                 height: 100%;
@@ -20,17 +21,28 @@
                 text-align: center;
                 font-family: sans-serif;
                 font-size: 35px;
+		border-collapse: separate;
+		border-spacing: 15px;
             }
             
             td {
-                border: 1px solid grey;
+                border: 2px solid rgb(132, 152, 255);;
                 border-radius: 5px;
+		width: 50%;
+		margin: 7px;
+		background-color: rgba(131, 156, 255, 0.39);
+		box-shadow: 3px 4px 9px grey;
             }
             
             th {
                 height: 10%;
                 font-size: 25px;
             }
+	    a {
+		text-decoration: none;
+		color: black;
+		font-size: 40px;
+	    }
         </style>
     </head>
     <body>
@@ -40,11 +52,15 @@
                     <th colspan="2">Select your instrument and make some noise!</th>
                 </tr>
                 <tr>
-                    <td><a href="player.html"><p>Player</p></a></td>
+                    <td><a href="player.html">Player</a></td>
                     <td><a href="drum.html">Drum</a></td>
                 </tr>
                 <tr>
                     <td><a href="piano.html">Piano</a></td>
+                    <td><a href="mallet.html">Mallet</a></td>
+                </tr>
+                <tr>
+                    <td><a href="xylophone.html">Xylophone</a></td>
                     <td></td>
                 </tr>
             </tbody>
