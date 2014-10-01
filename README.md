@@ -4,6 +4,8 @@ Synergic Noise
 
 Synergic Noise is a simple yet powerful collaborative drum machine.
 
+A demo is avalaible here: http://synergic-noise.tapion.it/
+
 It is based on:
 - node.js (http://nodejs.org)
 - socket.io (http://socket.io)
