@@ -57,5 +57,28 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="jquery-1.11.0.min.js"></script>
     <script src="instrument.js"></script>
+    <script type="text/javascript">
+
+        function bind_space_to_beat() {
+            $(document).keydown(function(e) {
+                switch(e.which) {
+                    case 32: // spacebar
+                        $('#beat').trigger("mousedown");
+                        $('#beat').trigger("mouseup");
+                        break;
+
+                    default: return; // exit this handler for other keys
+                }
+                e.preventDefault(); // prevent the default action (scroll / move caret)
+            });
+        };
+
+        bind_space_to_beat();
+        /*$(document).ready( 
+            function() { 
+                bind_space_to_beat();
+            }
+        );*/
+    </script>
 </body>
 </html>
