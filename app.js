@@ -7,7 +7,7 @@ var port = 8080;
 
 var play_from_terminal = true;
 
-var sounds = {
+sounds = {
     // DRUM
     'beat':"drum/beat.wav",
     "clap":"drum/clap.wav",
@@ -66,6 +66,22 @@ var sounds = {
     "mg3x":"mallet/G1.wav",
 }
 
+function synergicLoop(){
+	els = Object.keys(sounds)
+	s = Math.floor(Math.random()*els.length)
+	sound = els[s]
+	if(loop)
+		player.play('sounds/'+sounds[sound])
+	max_repeat_time = 2;
+	min_repeat_time = 1;
+	repeat_time = Math.random() * ( (max_repeat_time - min_repeat_time) + min_repeat_time ) * 1000;
+	setTimeout(synergicLoop, repeat_time);
+}
+
+loop = false;
+
+synergicLoop();
+
 server.listen(port, function () {
       console.log('Server listening at port %d', port);
 });
@@ -92,6 +108,9 @@ noisers.on('connection', function(socket) {
 	if(play_from_terminal)
 		player.play('sounds/'+sounds[data.sound])
         console.log(data.sound);
+    });
+    socket.on('loop', function(data) {
+	loop = data;
     });
 });
 

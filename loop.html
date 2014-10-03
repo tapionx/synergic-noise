@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Synergic Noise</title>
+    <style>
+        /* style of pressed objects */
+        .pressed {
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <!-- class="beat" bind the button to the id="drum" sound -->
+    <button id="loop" style="width:100px; height: 100px;">LOOP TOGGLE</button>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="jquery-1.11.0.min.js"></script>
+    <script src="instrument.js"></script>
+    <script>
+	window.loop = false;
+	$('#loop').on('mousedown touchstart', function(){
+		window.loop = !window.loop;
+		socket.emit('loop', window.loop);
+	});
+    </script>
+</body>
+</html>
