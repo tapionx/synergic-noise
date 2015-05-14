@@ -105,8 +105,8 @@ noisers.on('connection', function(socket) {
     //when a noiser send a sound
     socket.on('sound', function(data) {
         io.of('/players').emit('sound', data);
-	if(play_from_terminal)
-		player.play('sounds/'+sounds[data.sound])
+        if(play_from_terminal)
+            player.play('sounds/'+sounds[data.sound])
         console.log(data.sound);
     });
     socket.on('loop', function(data) {
