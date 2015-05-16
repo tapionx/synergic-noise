@@ -2,14 +2,14 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
-var player = require('play-sound')(opts = {})
+var player = require('play-sound')(opts = {});
 var port = 8080;
 
 var play_from_terminal = true;
 
 sounds = {
     // DRUM
-    'beat':"drum/beat.wav",
+    "beat":"drum/beat.wav",
     "clap":"drum/clap.wav",
     "clhat":"drum/clhat.wav",
     "click":"drum/click.wav",
@@ -63,15 +63,15 @@ sounds = {
     "mc3x":"mallet/C1.wav",
     "md3x":"mallet/D1.wav",
     "me3x":"mallet/E1.wav",
-    "mg3x":"mallet/G1.wav",
-}
+    "mg3x":"mallet/G1.wav"
+};
 
 function synergicLoop(){
-	els = Object.keys(sounds)
-	s = Math.floor(Math.random()*els.length)
-	sound = els[s]
+	els = Object.keys(sounds);
+	s = Math.floor(Math.random()*els.length);
+	sound = els[s];
 	if(loop)
-		player.play('sounds/'+sounds[sound])
+		player.play('sounds/'+sounds[sound]);
 	max_repeat_time = 2;
 	min_repeat_time = 1;
 	repeat_time = Math.random() * ( (max_repeat_time - min_repeat_time) + min_repeat_time ) * 1000;
@@ -105,8 +105,10 @@ noisers.on('connection', function(socket) {
     //when a noiser send a sound
     socket.on('sound', function(data) {
         io.of('/players').emit('sound', data);
-	if(play_from_terminal)
-		player.play('sounds/'+sounds[data.sound])
+        if(play_from_terminal) {
+            console.log("playing sound... " + sounds[data.sound]);
+            player.play('sounds/'+sounds[data.sound]);
+        }
         console.log(data.sound);
     });
     socket.on('loop', function(data) {

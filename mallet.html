@@ -45,8 +45,8 @@
             <td id="ma2x" class="beat"></td>
             <td id="mc2x" class="beat"></td>
             <td id="md2x" class="beat"></td>
-	    <td id="me2x" class="beat"></td>
-	    <td id="mg2x" class="beat"></td>
+            <td id="me2x" class="beat"></td>
+            <td id="mg2x" class="beat"></td>
             <td id="ma3x" class="beat"></td>
             <td id="mc3x" class="beat"></td>
             <td id="md3x" class="beat"></td>
@@ -57,5 +57,34 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="jquery-1.11.0.min.js"></script>
     <script src="instrument.js"></script>
+    <script type="text/javascript">
+        var __name__ = "MALLET";
+        var beats = {
+            // MALLET
+            "ma1x":"mallet/A0.wav",
+            "mc1x":"mallet/C0.wav",
+            "md1x":"mallet/D0.wav",
+            "me1x":"mallet/E0.wav",
+            "mg1x":"mallet/G0.wav",
+            "ma2x":"mallet/A.wav",
+            "mc2x":"mallet/C.wav",
+            "md2x":"mallet/D.wav",
+            "me2x":"mallet/E.wav",
+            "mg2x":"mallet/G.wav",
+            "ma3x":"mallet/A1.wav",
+            "mc3x":"mallet/C1.wav",
+            "md3x":"mallet/D1.wav",
+            "me3x":"mallet/E1.wav",
+            "mg3x":"mallet/G1.wav"
+        }
+        var key_to_sound = {
+            "W": "me2x",
+            "A": "mg2x",
+            "S": "ma3x",
+            "D": "mc3x",
+            "F": "md3x",
+            "G": "me3x" 
+        }
+    </script>
 </body>
 </html>
