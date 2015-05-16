@@ -59,7 +59,7 @@
     <script src="instrument.js"></script>
     <script type="text/javascript">
 
-        function bind_space_to_beat() {
+        /*function bind_space_to_beat() {
             $(document).keydown(function(e) {
                 switch(e.which) {
                     case 32: // spacebar
@@ -74,11 +74,36 @@
         };
 
         bind_space_to_beat();
+        */
         /*$(document).ready( 
             function() { 
                 bind_space_to_beat();
             }
         );*/
+    </script>
+    <script type="text/javascript">
+        var __name__ = "DRUM";
+        var beats = {
+            // DRUM
+            "beat":"drum/beat.wav",
+            "clap":"drum/clap.wav",
+            "clhat":"drum/clhat.wav",
+            "click":"drum/click.wav",
+            "drum":"drum/drum.wav",
+            "ludwig":"drum/ludwig.wav",
+            "piccolo":"drum/piccolo.wav",
+            "tom":"drum/tom.wav",
+            "tom2":"drum/tom2.wav"
+        }
+        var key_to_sound = {
+            "W": "beat",
+            "A": "clap",
+            "S": "clhat",
+            "D": "drum",
+            "F": "ludwig",
+            "G": "tom", 
+            " ": "beat"
+        }
     </script>
 </body>
 </html>
