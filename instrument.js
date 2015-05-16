@@ -23,27 +23,27 @@ $(document).ready(function() {
         }
     });
 
+    // makes it easy to define keybindings in plugins but
+    // WARNING: it limits the keycodes a plugin can bind...
+    var keycode_to_char = {
+        87: "W",
+        65: "A",
+        83: "S",
+        68: "D",
+        70: "F",
+        71: "G",
+        32: " "
+    };
     $(document).on('keydown', function(e) {
-        var key_to_sound = {
-            87: "1-c1",
-            65: "2-c1",
-            83: "3-d1",
-            68: "4-d1",
-            70: "5-e1",
-            71: "6-f1"
+        var keycode = e.which;
+        if (key_to_sound !== undefined) {
+            var letter = keycode_to_char[keycode];
+            if (letter !== undefined) {
+                play(key_to_sound[letter]);
+                $('#'+key_to_sound[letter]).addClass('pressed');
+                e.preventDefault(); // prevent the default action (scroll / move caret)
+            }
         }
-        switch(e.which) {
-            case 87: 
-            case 65: 
-            case 83: 
-            case 68: 
-            case 70: 
-            case 71: 
-                break;
-            default: return; // exit this handler for other keys
-        }
-        play(key_to_sound[e.which]);
-        e.preventDefault(); // prevent the default action (scroll / move caret)
         return;
     });
 
@@ -56,7 +56,7 @@ $(document).ready(function() {
         return false;
     });
 
-    $('.beat').on('mouseup touchend', function(e) {
+    $(document).on('mouseup touchend keyup', function(e) {
         $('.pressed').removeClass('pressed');
         e.preventDefault();
         return false;
