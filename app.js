@@ -104,7 +104,7 @@ noisers.on('connection', function(socket) {
     console.log('noiser logged in: '+socket.id);
     //when a noiser send a sound
     socket.on('sound', function(data) {
-        io.of('/players').emit('sound', data);
+        players.emit('sound', data);
         if(play_from_terminal) {
             console.log("playing sound... " + sounds[data.sound]);
             player.play('sounds/'+sounds[data.sound]);
@@ -112,7 +112,7 @@ noisers.on('connection', function(socket) {
         console.log(data.sound);
     });
     socket.on('loop', function(data) {
-	loop = data;
+        loop = data;
     });
 });
 
